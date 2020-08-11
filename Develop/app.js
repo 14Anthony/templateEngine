@@ -5,12 +5,14 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+
+
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
+const addEE = [];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
@@ -38,7 +40,7 @@ const questions = [
     {
         type: "list",
         name: "role",
-        message: "Choose a title for your project",
+        message: "Choose one 1 title for your Role",
         choices: ["Manager", "Engineer", "Intern", "Other"],
         filter: function (val) {
             return val.toLowerCase();
@@ -97,6 +99,12 @@ const questions = [
         type: "confirm",
         name: "Complete",
         message: "Confirm your answers are all true to the best of your knowledge."
+    },
+
+    {
+        type: "confirm",
+        name: "addAnother",
+        message: "Would you like to enter another team Member?"
     }
 ];
 
@@ -131,42 +139,20 @@ const questions = [
 //   ${data.description}
 
 
-//   ### Installation
 
-//   ${data.installDetails}
-//   ### Usage
-//   ${data.usageInformation}
-
-//   ### Contributing
-
-//   ${data.contribution}
-//   ### Tests
-
-//   ${data.testInformation}
-
-//   ## Author
-
-//   Github Repository - [${data.username}](https://github.com/${data.username})
-//   Email - ${data.email}
-
-//   ## License
-
-//   This project is licensed under the ${data.license}
-//   `;
-
-//     fs.writeFile(`${fileName}.md`, readMe, function (err) {
-//         if (err) throw err;
-//         console.log("File has been saved to your current project directory!");
-//     });
-// }
 
 // function to initialize program
 function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
-            writeToFile("README", answers);
+            addEE.push(answers);
+            // ("README", answers);
             // Use user feedback for... whatever!!
+            //  Travis code, for allwoing the the question to repeat
+            if (asnswer.addAnother) {
+                init();
+            }
         })
         .catch((error) => {
             if (error.isTtyError) {
@@ -180,3 +166,4 @@ function init() {
 
 // function call to initialize program
 init();
+// render(addEE);
