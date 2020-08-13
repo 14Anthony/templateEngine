@@ -108,7 +108,7 @@ function init(addEE = []) {
     inquirer
         .prompt(questions)
         .then((answers) => {
-            if (answers.role.includes("Manager")) {
+            if (answers.role.includes("manager")) {
                 let manager = new Manager(
                     answers.name,
                     answers.id,
@@ -120,7 +120,7 @@ function init(addEE = []) {
                 addEE.push(manager);
                 console.log(addEE);
             }
-            if (answers.role.includes("Engineer")) {
+            if (answers.role.includes("engineer")) {
                 let engineer = new Engineer(
                     answers.name,
                     answers.id,
@@ -131,7 +131,7 @@ function init(addEE = []) {
                 //console.log(engineer);
                 addEE.push(engineer);
             }
-            if (answers.role.includes("Intern")) {
+            if (answers.role.includes("intern")) {
                 let intern = new Intern(
                     answers.name,
                     answers.id,
