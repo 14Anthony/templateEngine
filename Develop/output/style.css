@@ -1,0 +1,23 @@
+.jumbotron {
+ background-color:  rgb(245, 65, 65);
+ color: rgb(250, 243, 243);
+}
+
+body {
+    background-image: url(american_flag.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.card-header {
+    background-color: rgb(4, 124, 243);
+    color: rgb(243, 247, 252);
+    
+   }
+#ecard {
+   
+    border-width: 1px;
+    box-shadow: rgba(0, 0, 0, 0.25) 3px 3px 0px 0px;
+    margin: 10px;
+     
+}
